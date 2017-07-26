@@ -1,21 +1,18 @@
 development: &default
-  adapter: postgresql
-  database: pana-nonverbal_development
-  encoding: utf8
-  min_messages: warning
-  pool: <%= Integer(ENV.fetch("DB_POOL", 5)) %>
-  reaping_frequency: <%= Integer(ENV.fetch("DB_REAPING_FREQUENCY", 10)) %>
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
   timeout: 5000
 
 test:
   <<: *default
-  database: pana-nonverbal_test
+  database: db/test.sqlite3
 
 production: &deploy
-  encoding: utf8
-  min_messages: warning
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: <%= [Integer(ENV.fetch("MAX_THREADS", 5)), Integer(ENV.fetch("DB_POOL", 5))].max %>
   timeout: 5000
-  url:  <%= ENV.fetch("DATABASE_URL", "") %>
+  database: db/production.sqlite3
 
 staging: *deploy
