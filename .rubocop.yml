@@ -19,3 +19,7 @@ FrozenStringLiteralComment:
   Enabled: false
 AsciiComments:
   Enabled: false
+
+BlockLength:
+  Exclude:
+    - spec/**/*
