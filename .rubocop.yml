@@ -1,11 +1,13 @@
 AllCops:
   Include:
     - Rakefile
+    - Gemfile
     - config.ru
   Exclude:
     - bin/**
     - config/**/*
-    - spec/**/*
+    - db/**
+
 Documentation:
   Enabled: false
 LineLength:
@@ -15,5 +17,5 @@ AbcSize:
   Enabled: false
 FrozenStringLiteralComment:
   Enabled: false
-Naming/AsciiIdentifiers:
+AsciiComments:
   Enabled: false

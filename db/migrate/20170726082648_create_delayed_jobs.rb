@@ -1,5 +1,5 @@
 class CreateDelayedJobs < ActiveRecord::Migration[5.1]
-  def self.up
+  def self.up # rubocop:disable MethodLength
     create_table :delayed_jobs, force: true do |table|
       table.integer :priority, default: 0, null: false # Allows some jobs to jump to the front of the queue
       table.integer :attempts, default: 0, null: false # Provides for retries, but still fail eventually.
