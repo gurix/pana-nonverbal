@@ -7,6 +7,6 @@ class Emoji < ApplicationRecord
   # It has to have the polarity «low» or «high». i.e relaxed is NA low but stressed is NA high
   validates :polarity, presence: true, inclusion: { in: %w[low high] }
 
-  # It has to have a verbal representation to the emoji like 😀 = happy 
+  # It has to have a verbal representation to the emoji like 😀 = happy
   validates :verbal, presence: true
 end
