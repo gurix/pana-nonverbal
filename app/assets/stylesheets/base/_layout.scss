@@ -13,8 +13,17 @@ body {
   height: 100%;
 }
 
+$bigger-device-grid: (
+  columns: 12,
+  media: 768px
+);
+
 .center {
   margin: 20px;
-  @include grid-shift(3);
-  @include grid-column(6);
+  
+  @include grid-column(12);
+  @include grid-media($bigger-device-grid){
+    @include grid-shift(3);
+    @include grid-column(6);
+  }
 }
