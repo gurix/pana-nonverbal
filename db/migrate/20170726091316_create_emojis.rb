@@ -8,4 +8,8 @@ class CreateEmojis < ActiveRecord::Migration[5.1]
       t.string :verbal,    null: false # The verbal representation to the emoji like 😀 = happy
     end
   end
+
+  def down
+    drop_table :emojis
+  end
 end

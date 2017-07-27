@@ -4,6 +4,9 @@ class Subject < ApplicationRecord
 
   before_create :reset_token
 
+  has_many :ratings
+  has_many :emojis, through: :ratings
+
   private
 
   def reset_token

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726125046) do
+ActiveRecord::Schema.define(version: 20170727070944) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 20170726125046) do
     t.string "dimension", null: false
     t.string "polarity", null: false
     t.string "verbal", null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "subject_id"
+    t.integer "emoji_id"
+    t.integer "choosen_emoji_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "showed_at"
+    t.datetime "rated_at"
+    t.index ["choosen_emoji_id"], name: "index_ratings_on_choosen_emoji_id"
+    t.index ["emoji_id"], name: "index_ratings_on_emoji_id"
+    t.index ["subject_id"], name: "index_ratings_on_subject_id"
   end
 
   create_table "subjects", force: :cascade do |t|
