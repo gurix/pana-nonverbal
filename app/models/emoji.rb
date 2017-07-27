@@ -15,6 +15,6 @@ class Emoji < ApplicationRecord
 
   # Find other emojis being in the same set, having the same dimension and polarity
   def find_similar_ones
-    self.class.where(set: set, dimension: dimension, polarity: polarity)
+    self.class.where(set: set, dimension: dimension, polarity: polarity).where.not(id: id)
   end
 end

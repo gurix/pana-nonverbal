@@ -40,9 +40,12 @@ describe Emoji do
   end
 
   it 'finds similar emojis' do
+    initial_subject = described_class.create(set: :test, dimension: :pa, polarity: :low, verbal: :initial)
     similar_one = described_class.create(set: :test, dimension: :pa, polarity: :low, verbal: :similar)
     not_similar_one = described_class.create(set: :test, dimension: :pa, polarity: :high, verbal: :not_similar)
-    expect(subject.find_similar_ones).to include(similar_one)
-    expect(subject.find_similar_ones).not_to include(not_similar_one)
+
+    expect(initial_subject.find_similar_ones.size).to be 1
+    expect(initial_subject.find_similar_ones).to include(similar_one)
+    expect(initial_subject.find_similar_ones).not_to include(not_similar_one)
   end
 end
