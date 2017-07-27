@@ -6,13 +6,13 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.4.1'
-
 gem 'autoprefixer-rails'
 gem 'delayed_job_active_record'
 gem 'flutie'
-gem 'honeybadger'
 gem 'jquery-rails'
+gem 'slim-rails'
 # gem 'pg'
+gem 'normalize-rails'
 gem 'puma'
 gem 'rack-canonical-host'
 gem 'rails', '~> 5.1.2'
@@ -20,7 +20,7 @@ gem 'recipient_interceptor'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'sqlite3'
-# gem 'skylight'
+
 gem 'sprockets', '>= 3.0.0'
 gem 'suspenders'
 gem 'title'

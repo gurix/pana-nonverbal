@@ -11,8 +11,7 @@ test:
 production: &deploy
   adapter: sqlite3
   database: db/development.sqlite3
-  pool: <%= [Integer(ENV.fetch("MAX_THREADS", 5)), Integer(ENV.fetch("DB_POOL", 5))].max %>
+  pool: 5
   timeout: 5000
-  database: db/production.sqlite3
 
 staging: *deploy

@@ -13,6 +13,8 @@ body {
   height: 100%;
 }
 
-body {
-  margin: 0;
+.center {
+  margin: 20px;
+  @include grid-shift(3);
+  @include grid-column(6);
 }

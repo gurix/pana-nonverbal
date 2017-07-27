@@ -16,4 +16,11 @@ en:
         "%B %d"
 
   titles:
-    application: Pana-nonverbal
+    application: PANA Nonverbal
+
+  subjects:
+    new:
+      title: Lorem non culpa mollit commodo.
+      intro: Eiusmod excepteur voluptate esse sit non. Reprehenderit officia officia culpa minim dolor. Laboris qui nisi esse eu exercitation magna ad ut commodo culpa cillum. Sint est duis cillum cillum qui et. Pariatur cillum duis sit minim minim fugiat mollit ut labore ad. Anim non mollit consectetur quis laboris ad officia id pariatur qui. Veniam culpa culpa officia occaecat eu minim sit pariatur ut et eu.
+      create: Start a new survey
+      proceed: You already started a survey. Click here to proceed.
