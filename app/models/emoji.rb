@@ -9,4 +9,9 @@ class Emoji < ApplicationRecord
 
   # It has to have a verbal representation to the emoji like 😀 = happy
   validates :verbal, presence: true
+
+  # Find other emojis being in the same set, having the same dimension and polarity
+  def find_similar_ones
+    self.class.where(set: set, dimension: dimension, polarity: polarity)
+  end
 end

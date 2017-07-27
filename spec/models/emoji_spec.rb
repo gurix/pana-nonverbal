@@ -38,4 +38,11 @@ describe Emoji do
     subject.verbal = nil
     expect(subject).to_not be_valid
   end
+
+  it 'finds similar emojis' do
+    similar_one = described_class.create(set: :test, dimension: :pa, polarity: :low, verbal: :similar)
+    not_similar_one = described_class.create(set: :test, dimension: :pa, polarity: :high, verbal: :not_similar)
+    expect(subject.find_similar_ones).to include(similar_one)
+    expect(subject.find_similar_ones).not_to include(not_similar_one)
+  end
 end
