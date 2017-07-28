@@ -39,13 +39,15 @@ describe Emoji do
     expect(subject).to_not be_valid
   end
 
-  it 'finds similar emojis' do
+  it 'finds its distractors' do
     initial_subject = described_class.create(set: :test, dimension: :pa, polarity: :low, verbal: :initial)
-    similar_one = described_class.create(set: :test, dimension: :pa, polarity: :low, verbal: :similar)
-    not_similar_one = described_class.create(set: :test, dimension: :pa, polarity: :high, verbal: :not_similar)
+    distractor = described_class.create(set: :test, dimension: :na, polarity: :high, verbal: :distractor)
+    false_dimension = described_class.create(set: :test, dimension: :pa, polarity: :high, verbal: :false_dimension)
+    false_polarity = described_class.create(set: :test, dimension: :na, polarity: :low, verbal: :false_polarity)
 
-    expect(initial_subject.find_similar_ones.size).to be 1
-    expect(initial_subject.find_similar_ones).to include(similar_one)
-    expect(initial_subject.find_similar_ones).not_to include(not_similar_one)
+    expect(initial_subject.find_distractors.count).to eq 1
+    expect(initial_subject.find_distractors).to include(distractor)
+    expect(initial_subject.find_distractors).not_to include(false_dimension)
+    expect(initial_subject.find_distractors).not_to include(false_polarity)
   end
 end

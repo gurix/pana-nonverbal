@@ -13,8 +13,9 @@ class Emoji < ApplicationRecord
   has_many :ratings
   has_many :subjects, through: :ratings
 
-  # Find other emojis being in the same set, having the same dimension and polarity
-  def find_similar_ones
-    self.class.where(set: set, dimension: dimension, polarity: polarity).where.not(id: id)
+  def find_distractors
+    distractor_dimension = dimension == 'pa' ? 'na' : 'pa'
+    distractor_polarity = polarity == 'low' ? 'high' : 'low'
+    self.class.where(set: set, dimension: distractor_dimension, polarity: distractor_polarity)
   end
 end

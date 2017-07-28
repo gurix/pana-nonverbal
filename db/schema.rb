@@ -37,14 +37,16 @@ ActiveRecord::Schema.define(version: 20170727070944) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "subject_id"
-    t.integer "emoji_id"
-    t.integer "choosen_emoji_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "subject_id"
+    t.integer "emoji_id"
+    t.integer "distractor_id"
+    t.boolean "reversed", default: false
     t.datetime "showed_at"
     t.datetime "rated_at"
-    t.index ["choosen_emoji_id"], name: "index_ratings_on_choosen_emoji_id"
+    t.boolean "rated_correctly"
+    t.index ["distractor_id"], name: "index_ratings_on_distractor_id"
     t.index ["emoji_id"], name: "index_ratings_on_emoji_id"
     t.index ["subject_id"], name: "index_ratings_on_subject_id"
   end
