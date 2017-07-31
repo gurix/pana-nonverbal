@@ -12,6 +12,10 @@ class Subject < ApplicationRecord
     self.token = generate_token(4) until unique_token?
   end
 
+  def rate_next
+    ratings.where(rated_at: nil).sample
+  end
+
   private
 
   def generate_token(size)

@@ -1,0 +1,7 @@
+p = t('.description')
+.image
+  = image_tag(@rating.emoji.image_name)
+.distractors
+  strong = t('.instruction')
+  = link_to @rating.stimuli.first.verbal, rating_path(@rating,{"rating['choosen_id']" => @rating.stimuli.first}), class: 'button first', method: :put
+  = link_to @rating.stimuli.last.verbal, rating_path(@rating), class: 'button second', method: :put

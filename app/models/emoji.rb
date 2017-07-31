@@ -11,11 +11,19 @@ class Emoji < ApplicationRecord
   validates :verbal, presence: true
 
   has_many :ratings
+  has_many :choosens, class_name: 'Rating', foreign_key: 'choosen_id'
   has_many :subjects, through: :ratings
 
+  # Find the distractors of the opposite dimension with the oposite polarity. i.e «na,low» becomes «pa, high»
   def find_distractors
     distractor_dimension = dimension == 'pa' ? 'na' : 'pa'
     distractor_polarity = polarity == 'low' ? 'high' : 'low'
     self.class.where(set: set, dimension: distractor_dimension, polarity: distractor_polarity)
+  end
+
+  # Calculate the image name or retrun a placeholder if it does not exist
+  def image_name
+    path = "sets/#{set}/#{dimension}_#{polarity}_#{verbal}"
+    Rails.application.assets.find_asset(path).nil? ? 'placeholder' : path
   end
 end

@@ -24,3 +24,8 @@ en:
       intro: Eiusmod excepteur voluptate esse sit non. Reprehenderit officia officia culpa minim dolor. Laboris qui nisi esse eu exercitation magna ad ut commodo culpa cillum. Sint est duis cillum cillum qui et. Pariatur cillum duis sit minim minim fugiat mollit ut labore ad. Anim non mollit consectetur quis laboris ad officia id pariatur qui. Veniam culpa culpa officia occaecat eu minim sit pariatur ut et eu.
       create: Start a new survey
       proceed: You already started a survey. Click here to proceed.
+  
+  ratings:
+    edit:
+      description: Ea excepteur sint irure dolore incididunt. Commodo enim nisi dolore ut irure cupidatat voluptate consequat id reprehenderit ex officia in aliqua. Id officia proident enim cillum elit esse anim tempor excepteur.
+      instruction: Select the word which matches the displayed emoji the best in your opinion.

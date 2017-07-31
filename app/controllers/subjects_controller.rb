@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   def new
-    @subject = Subject.find_by(token: cookies.encrypted[:subject_token]) if cookies.encrypted[:subject_token]
+    @subject = current_subject
   end
 
   def create

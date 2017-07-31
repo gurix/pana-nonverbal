@@ -42,10 +42,11 @@ ActiveRecord::Schema.define(version: 20170727070944) do
     t.integer "subject_id"
     t.integer "emoji_id"
     t.integer "distractor_id"
+    t.integer "choosen_id"
     t.boolean "reversed", default: false
     t.datetime "showed_at"
     t.datetime "rated_at"
-    t.boolean "rated_correctly"
+    t.index ["choosen_id"], name: "index_ratings_on_choosen_id"
     t.index ["distractor_id"], name: "index_ratings_on_distractor_id"
     t.index ["emoji_id"], name: "index_ratings_on_emoji_id"
     t.index ["subject_id"], name: "index_ratings_on_subject_id"

@@ -1,0 +1,25 @@
+.image {
+  @include grid-column(12);
+  @include grid-media($bigger-device-grid){
+    @include grid-column(6);
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.distractors {
+  text-align: center;
+  @include grid-column(12);
+  @include grid-media($bigger-device-grid){
+    @include grid-column(6);
+  }
+  .first, .second {
+    @include grid-column(12);
+    margin-top: 20px;
+  }
+}
+
