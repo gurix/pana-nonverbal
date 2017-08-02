@@ -6,6 +6,6 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.create
     cookies.encrypted[:subject_token] = @subject.token
-    redirect_to root_path
+    redirect_to edit_rating_path(@subject.rate_next)
   end
 end

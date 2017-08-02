@@ -17,7 +17,7 @@ Emoji.create(verbal: 'besorgt', dimension: :na, polarity: :high, set: set_name)
 Emoji.create(verbal: 'entspannt', dimension: :na,  polarity: :low, set: set_name)
 Emoji.create(verbal: 'friedlich', dimension: :na,  polarity: :low, set: set_name)
 Emoji.create(verbal: 'ruhig', dimension: :na, polarity: :low, set: set_name)
-Emoji.create(verbal: 'besorgt', dimension: :na, polarity: :low, set: set_name)
+Emoji.create(verbal: 'sorgenfrei', dimension: :na, polarity: :low, set: set_name)
 
 Emoji.create(verbal: 'energiegeladen', dimension: :pa, polarity: :high, set: set_name)
 Emoji.create(verbal: 'hellwach', dimension: :pa,  polarity: :high, set: set_name)

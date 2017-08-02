@@ -29,3 +29,6 @@ en:
     edit:
       description: Ea excepteur sint irure dolore incididunt. Commodo enim nisi dolore ut irure cupidatat voluptate consequat id reprehenderit ex officia in aliqua. Id officia proident enim cillum elit esse anim tempor excepteur.
       instruction: Select the word which matches the displayed emoji the best in your opinion.
+
+    update:
+      end_message: Thank you for taking the time to complete this survey. We truly value the information you have provided.
