@@ -28,6 +28,7 @@ gem 'sprockets', '>= 3.0.0'
 
 gem 'title'
 gem 'uglifier'
+gem 'dotenv-rails'
 
 group :development do
   gem 'listen'
@@ -39,7 +40,6 @@ end
 group :development, :test do
   gem 'awesome_print'
   gem 'bundler-audit', '>= 0.5.0', require: false
-  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry-byebug'
