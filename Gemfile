@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.4.1'
+# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby
 gem 'activesupport'
 gem 'autoprefixer-rails'
 gem 'delayed_job_active_record'
