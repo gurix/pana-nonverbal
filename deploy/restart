@@ -1,3 +1,4 @@
 #!/bin/sh
+cd ~
 passenger-config restart-app . --ignore-app-not-running
 echo "restarting Passenger app"
