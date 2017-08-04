@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.3.1'
+gem 'activesupport'
 gem 'autoprefixer-rails'
 gem 'delayed_job_active_record'
 gem 'flutie'

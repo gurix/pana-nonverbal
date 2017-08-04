@@ -274,6 +274,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   autoprefixer-rails
   awesome_print
   bourbon (~> 5.0.0.beta.8)
