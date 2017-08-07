@@ -16,19 +16,19 @@ en:
         "%B %d"
 
   titles:
-    application: PANA Nonverbal
+    application: Validation of items for non verbal questionnaire of positive and negative activation using emojis as stimuli
 
   subjects:
     new:
-      title: Lorem non culpa mollit commodo.
-      intro: Eiusmod excepteur voluptate esse sit non. Reprehenderit officia officia culpa minim dolor. Laboris qui nisi esse eu exercitation magna ad ut commodo culpa cillum. Sint est duis cillum cillum qui et. Pariatur cillum duis sit minim minim fugiat mollit ut labore ad. Anim non mollit consectetur quis laboris ad officia id pariatur qui. Veniam culpa culpa officia occaecat eu minim sit pariatur ut et eu.
+      title: Validation of items for non verbal questionnaire of positive and negative activation using emojis as stimuli
       create: Start a new survey
       proceed: You already started a survey. Click here to proceed.
   
   ratings:
     edit:
-      description: Ea excepteur sint irure dolore incididunt. Commodo enim nisi dolore ut irure cupidatat voluptate consequat id reprehenderit ex officia in aliqua. Id officia proident enim cillum elit esse anim tempor excepteur.
-      instruction: Select the word which matches the displayed emoji the best in your opinion.
+      description: Your task is to decide which word describes the emoji below the best by clicking on the it. There is no «right» or «wrong», trust in your gut feeling and decide intuitively.
+      demand: It represents the following word ...
+      counter: You evaluated %{finnished} of %{total} items. There are only %{unfinnished} items left, that's not much.
 
     update:
       end_message: Thank you for taking the time to complete this survey. We truly value the information you have provided.

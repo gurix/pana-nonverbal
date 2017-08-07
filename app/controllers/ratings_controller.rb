@@ -21,6 +21,7 @@ class RatingsController < ApplicationController
   private
 
   def load_rating
-    @rating = current_subject.ratings.find(params[:id])
+    @subject = current_subject
+    @rating = @subject.ratings.find(params[:id])
   end
 end

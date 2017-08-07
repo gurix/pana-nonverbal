@@ -13,7 +13,11 @@ class Subject < ApplicationRecord
   end
 
   def rate_next
-    ratings.where(rated_at: nil).sample
+    unfinnished_ratings.sample
+  end
+
+  def unfinnished_ratings
+    ratings.where(rated_at: nil)
   end
 
   private
