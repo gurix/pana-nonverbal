@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root 'subjects#new'
-  resources :subjects
-  resources :ratings
+  scope "/:locale" do
+    root 'subjects#new'
+    resources :subjects
+    resources :ratings
+  end
 end

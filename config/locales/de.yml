@@ -1,0 +1,34 @@
+de:
+  date:
+    formats:
+      default:
+        "%d.%m.%Y"
+      with_weekday:
+        "%a %d.%m.%Y"
+
+  time:
+    formats:
+      default:
+        "%a, %b %-d, %Y am %r"
+      date:
+        "%b %-d, %Y"
+      short:
+        "%B %d"
+
+  titles:
+    application: Validierung von Emojis für den nicht verbalen Fragebogen zur positiven und negativen Aktivierung
+
+  subjects:
+    new:
+      title: Validierung von Emojis für den nicht verbalen Fragebogen zur positiven und negativen Aktivierung
+      create: Neue Befragung starten
+      proceed: Sie haben bereits eine Befragung gestartet. Klicken Sie hier um diese fortzusetzen
+  
+  ratings:
+    edit:
+      description: Ihre Aufgabe ist es zu entscheiden, welches Wort das unten stehende Emoji am besten beschreibt, in dem Sie das entsprechende Wort anklicken. Es gibt kein «richtig» oder «falsch», vertrauen Sie Ihrem Bauchgefühl und entscheiden Sie intuitiv.
+      demand: Es repräsentiert das folgende Wort ...
+      counter: Sie haben %{finnished} von %{total} Emojis bewertet. Es sind nur noch %{unfinnished} Emojis übrig, das ist nicht viel.
+
+    update:
+      end_message: Besten dank, dass Sie sich die Zeit genommen haben an dieser Untersuchung teilzunehmen. Die von Ihnen generierten Daten sind ein wertvoller Beitrag zu unserer Forschung.
