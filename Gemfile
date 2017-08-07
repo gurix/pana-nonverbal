@@ -7,13 +7,13 @@ end
 
 ruby '2.4.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
 gem 'activesupport'
 gem 'autoprefixer-rails'
 gem 'delayed_job_active_record'
 gem 'flutie'
 gem 'jquery-rails'
 gem 'slim-rails'
+gem 'therubyracer', platforms: :ruby
 # gem 'pg'
 gem 'normalize-rails'
 gem 'puma'
@@ -26,9 +26,9 @@ gem 'sqlite3'
 
 gem 'sprockets', '>= 3.0.0'
 
+gem 'dotenv-rails'
 gem 'title'
 gem 'uglifier'
-gem 'dotenv-rails'
 
 group :development do
   gem 'listen'
