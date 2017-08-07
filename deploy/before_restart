@@ -29,10 +29,9 @@ if File.file? 'Rakefile'
   changed_assets = `git diff #{oldrev} #{newrev} --name-only -z app/assets`.split("\0")
   tasks << 'assets:precompile' unless changed_assets.empty?
   puts tasks
-  puts 'xxx'
   run "#{rake_cmd} #{tasks.join(' ')} RAILS_ENV=#{RAILS_ENV}" if tasks.any?
 end
-puts 'yyy'
+
 # clear cached assets (unversioned/ignored files)
 run 'git clean -x -f -- public/stylesheets public/javascripts'
 
