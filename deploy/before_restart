@@ -7,7 +7,7 @@ end
 
 RAILS_ENV   = ENV['RAILS_ENV'] || 'production'
 use_bundler = File.file? 'Gemfile'
-rake_cmd    = use_bundler ? 'bundle exec rake' : 'rake'
+rake_cmd    = use_bundler ? 'bin/bundle exec rake' : 'rake'
 
 if use_bundler
   bundler_args = ['--deployment']
