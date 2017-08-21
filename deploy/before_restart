@@ -5,8 +5,6 @@ def run(cmd)
   exit($CHILD_STATUS.exitstatus) unless system "umask 002 && #{cmd}"
 end
 
-puts Dir.pwd
-
 RAILS_ENV   = ENV['RAILS_ENV'] || 'production'
 use_bundler = File.file? 'Gemfile'
 rake_cmd    = use_bundler ? 'bin/bundle exec rake' : 'rake'
@@ -17,7 +15,7 @@ if use_bundler
   bundler_args << '--without' << BUNDLE_WITHOUT unless BUNDLE_WITHOUT.empty?
 
   # update gem bundle
-  run "bundle install #{bundler_args.join(' ')}"
+  run "bin/bundle install #{bundler_args.join(' ')}"
 end
 
 if File.file? 'Rakefile'
