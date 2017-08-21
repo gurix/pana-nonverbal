@@ -5,6 +5,8 @@ def run(cmd)
   exit($CHILD_STATUS.exitstatus) unless system "umask 002 && #{cmd}"
 end
 
+puts Dir.pwd
+
 RAILS_ENV   = ENV['RAILS_ENV'] || 'production'
 use_bundler = File.file? 'Gemfile'
 rake_cmd    = use_bundler ? 'bin/bundle exec rake' : 'rake'
@@ -28,7 +30,6 @@ if File.file? 'Rakefile'
   # precompile assets
   changed_assets = `git diff #{oldrev} #{newrev} --name-only -z app/assets`.split("\0")
   tasks << 'assets:precompile' unless changed_assets.empty?
-  puts tasks
   run "#{rake_cmd} #{tasks.join(' ')} RAILS_ENV=#{RAILS_ENV}" if tasks.any?
 end
 
