@@ -18,7 +18,10 @@ class Emoji < ApplicationRecord
   def find_distractors
     distractor_dimension = dimension == 'pa' ? 'na' : 'pa'
     distractor_polarity = polarity == 'low' ? 'high' : 'low'
-    self.class.where(set: set, dimension: distractor_dimension, polarity: distractor_polarity)
+    self.class
+        .where(set: set, dimension: distractor_dimension, polarity: distractor_polarity)
+        .or(self.class.where(set: set, dimension: dimension, polarity: polarity))
+        .where.not(id: id)
   end
 
   # Calculate the image name or retrun a placeholder if it does not exist
