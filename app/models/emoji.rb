@@ -27,6 +27,7 @@ class Emoji < ApplicationRecord
   # Calculate the image name or retrun a placeholder if it does not exist
   def image_name
     path = "sets/#{set}/#{dimension}_#{polarity}_#{verbal}"
-    Rails.application.assets.find_asset(path).nil? ? 'placeholder' : path
+    # Rails.application.assets.find_asset(path).nil? ? 'placeholder' : path
+    path
   end
 end

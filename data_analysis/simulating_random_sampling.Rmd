@@ -1,0 +1,79 @@
+---
+title: "Simulating Random Sampling"
+author: "Markus Graf"
+date: "25 8 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reshape2)
+```
+
+## Simple random sampling
+```{r}
+# List of emojis holding the amount of displays
+emojis <- matrix(0, nrow=50, ncol = 7)
+
+# For each session get only 50 emojis per presentation
+emojis_per_session <- function(n) {
+  matrix_data <- rep(0, times=50*7)
+  matrix_data[sample(1:(50*7), n)] <- 1
+  matrix(matrix_data, nrow=50, ncol = 7)
+}
+
+log_rating <- matrix(0,nrow=140, ncol=350)
+
+# Run the experiment with 140 participents
+for(i in 1:140) {
+  rated_emojis <- emojis_per_session(50)
+  log_rating[i,] <- as.vector(rated_emojis)
+  emojis = emojis + rated_emojis
+}
+
+psych::describe(as.vector(emojis))
+hist(emojis, main='Distribution of ratins per distractor')
+barplot(rowSums(emojis)/7, main='Amount of ratings per emoji')
+
+melted <- melt(log_rating)
+plot(melted$Var2*melted$value,melted$Var1*melted$value, xlab = 'Item', ylab='Subject')
+```
+
+
+## Weighted random sampling
+```{r}
+# List of emojis holding the amount of displays
+emojis <- matrix(0, nrow=50, ncol = 7)
+
+# Returns the half the requested set of the least rated emojis
+underrated_emojis <- function (n) {
+  emojis_flattened <- as.vector(emojis)
+  names(emojis_flattened) <- 1:(50*7)
+  return(sort(emojis_flattened)[1:((50*7)/2)])
+}
+
+# For each session get only 50 emojis per presentation
+emojis_per_session <- function(n) {
+  matrix_data <- rep(0, times=50*7)
+  names(matrix_data) <- 1:(50*7)
+  random_selection <- sample(names(underrated_emojis(n)), 50)
+  matrix_data[random_selection] <- 1
+  matrix(matrix_data, nrow=50, ncol = 7)
+}
+
+log_rating <- matrix(0,nrow=140, ncol=350)
+
+# Run the experiment with 140 participents
+for(i in 1:140) {
+  rated_emojis <- emojis_per_session(50)
+  log_rating[i,] <- as.vector(rated_emojis)
+  emojis = emojis + rated_emojis
+}
+
+psych::describe(as.vector(emojis))
+hist(emojis, main='Distribution of ratins per distractor')
+barplot(rowSums(emojis)/7, main='Amount of ratings per emoji')
+
+melted <- melt(log_rating)
+plot(melted$Var2*melted$value,melted$Var1*melted$value, xlab = 'Item', ylab='Subject')
+```

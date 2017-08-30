@@ -27,7 +27,7 @@ class Subject < ApplicationRecord
   end
 
   def generate_ratings
-    Emoji.all.each do |emoji|
+    Emoji.where(only_verbal: false).each do |emoji|
       emoji.find_distractors.each do |distractor|
         ratings.create(emoji: emoji, distractor: distractor, reversed: [true, false].sample)
       end

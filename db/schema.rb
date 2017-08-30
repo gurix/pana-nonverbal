@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170727070944) do
     t.string "dimension", null: false
     t.string "polarity", null: false
     t.string "verbal", null: false
+    t.boolean "only_verbal", default: false
   end
 
   create_table "ratings", force: :cascade do |t|

@@ -8,6 +8,6 @@ describe Subject do
 
   it 'generates ratings for the subject' do
     subject = Subject.create
-    expect(subject.ratings.count).to eq 112
+    expect(subject.ratings.count).to eq 308
   end
 end
