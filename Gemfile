@@ -61,6 +61,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'timecop'
   gem 'webmock'
+  gem 'descriptive-statistics'
 end
 
 group :staging, :production do
