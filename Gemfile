@@ -54,6 +54,7 @@ end
 group :test do
   gem 'capybara-webkit'
   gem 'database_cleaner'
+  gem 'descriptive-statistics'
   gem 'formulaic'
   gem 'launchy'
   gem 'selenium-webdriver'
@@ -61,7 +62,6 @@ group :test do
   gem 'simplecov', require: false
   gem 'timecop'
   gem 'webmock'
-  gem 'descriptive-statistics'
 end
 
 group :staging, :production do

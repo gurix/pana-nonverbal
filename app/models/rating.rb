@@ -24,6 +24,7 @@ class Rating < ApplicationRecord
   # Sample n ratings from half of the possible rating combinations that already rated the least
   def self.sample_weighted_ratings(n)
     list_of_combinations = possible_combinations
-    list_of_combinations.sort_by { |x| x[:count] }.first(list_of_combinations.size / 2).sample(n)
+    return list_of_combinations.sort_by { |x| x[:count] }.first(list_of_combinations.size / 2).sample(n) if count > 30
+    list_of_combinations.sample(n)
   end
 end

@@ -23,9 +23,9 @@ feature 'Survey' do
         expect(rating.rated_at).to be > rating.showed_at
       end
     end
-    
+
     statistics = DescriptiveStatistics::Stats.new(Rating.group('emoji_id, distractor_id').count.values)
-    
+
     expect(statistics.mean).to be > 18
   end
 end
