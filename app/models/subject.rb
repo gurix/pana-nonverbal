@@ -13,11 +13,7 @@ class Subject < ApplicationRecord
   end
 
   def rate_next
-    unfinnished_ratings.sample
-  end
-
-  def unfinnished_ratings
-    ratings.where(rated_at: nil)
+    ratings.unrated.sample
   end
 
   private
@@ -27,10 +23,8 @@ class Subject < ApplicationRecord
   end
 
   def generate_ratings
-    Emoji.where(only_verbal: false).each do |emoji|
-      emoji.find_distractors.each do |distractor|
-        ratings.create(emoji: emoji, distractor: distractor, reversed: [true, false].sample)
-      end
+    Rating.sample_weighted_ratings(44).each do |rating|
+      ratings.create(emoji: rating[:emoji], distractor: rating[:distractor], reversed: [true, false].sample)
     end
     ratings
   end

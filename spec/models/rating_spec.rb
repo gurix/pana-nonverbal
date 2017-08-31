@@ -16,4 +16,8 @@ describe Rating do
     subject.reversed = true
     expect(subject.stimuli).to eq [distractor, emoji]
   end
+
+  it 'returns a list of all possible combination of distractors' do
+    expect(described_class.possible_combinations.size).to eq 308
+  end
 end
