@@ -2,29 +2,27 @@ class Rating < ApplicationRecord
   belongs_to :subject
   belongs_to :emoji
   belongs_to :distractor, class_name: 'Emoji', foreign_key: 'distractor_id'
-  belongs_to :choosen, class_name: 'Emoji', foreign_key: 'choosen_id', optional: true
+  belongs_to :choosen, class_name: 'Emoji', foreign_key: 'choosen_id', optional: true # Choosen stimuli either the correct emojo or the distractor
 
-  scope :rated, -> { where.not(rated_at: nil) }
-  scope :unrated, -> { where(rated_at: nil) }
+  scope :rated, -> { where.not(rated_at: nil) } # Already rated by the participant
+  scope :unrated, -> { where(rated_at: nil) } # Queue of emojis a participant has to rate
 
+  # Order of stimuli presented as buttons
   def stimuli
     reversed ? [distractor, emoji] : [emoji, distractor]
   end
 
-  # Calculate a list with all possible rating combinations
-  def self.possible_combinations
+  # Build ratings for a new participant
+  def self.build_ratings
     Emoji.where(only_verbal: false).map do |emoji|
-      emoji.find_distractors.map do |distractor|
+      # Find all possible distractors for this emoji
+      distractors = emoji.find_distractors.map do |distractor|
+        # Count how many times it already was rated
         count_allready_rated = rated.where(emoji: emoji, distractor: distractor).count
         { emoji: emoji, distractor: distractor, count: count_allready_rated }
       end
-    end.flatten
-  end
-
-  # Sample n ratings from half of the possible rating combinations that already rated the least
-  def self.sample_weighted_ratings(n)
-    list_of_combinations = possible_combinations
-    return list_of_combinations.sort_by { |x| x[:count] }.first(list_of_combinations.size / 2).sample(n) if count > 30
-    list_of_combinations.sample(n)
+      # Take the least rated distractor. .
+      distractors.sort_by { |x| x[:count] }.first
+    end
   end
 end

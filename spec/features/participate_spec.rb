@@ -24,8 +24,8 @@ feature 'Survey' do
       end
     end
 
-    statistics = DescriptiveStatistics::Stats.new(Rating.group('emoji_id, distractor_id').count.values)
-
-    expect(statistics.mean).to be > 18
+    amount_of_rating_per_combination = Rating.group('emoji_id, distractor_id').count.values
+    expect(amount_of_rating_per_combination.uniq.size).to eq 1
+    expect(amount_of_rating_per_combination.uniq.first).to eq 20
   end
 end

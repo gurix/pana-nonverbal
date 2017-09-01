@@ -54,7 +54,6 @@ end
 group :test do
   gem 'capybara-webkit'
   gem 'database_cleaner'
-  gem 'descriptive-statistics'
   gem 'formulaic'
   gem 'launchy'
   gem 'selenium-webdriver'

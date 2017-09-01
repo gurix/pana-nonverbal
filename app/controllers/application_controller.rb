@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
+  # The current subject or participant is deposited in a cookie
   def current_subject
     Subject.find_by(token: cookies.encrypted[:subject_token]) if cookies.encrypted[:subject_token]
   end
