@@ -27,7 +27,7 @@ de:
   ratings:
     edit:
       description: Ihre Aufgabe ist es zu entscheiden, welches Wort das unten stehende Emoji am besten beschreibt, in dem Sie das entsprechende Wort anklicken. Es gibt kein «richtig» oder «falsch», vertrauen Sie Ihrem Bauchgefühl und entscheiden Sie intuitiv.
-      demand: Es repräsentiert das folgende Wort ...
+      demand: "Es repräsentiert das folgende Wort:"
       counter: Sie haben %{finnished} von %{total} Emojis bewertet. Es sind nur noch %{unfinnished} Emojis übrig, das ist nicht viel.
 
     update:

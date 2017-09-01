@@ -3,7 +3,7 @@ p = t('.counter', total: @subject.ratings.count, finnished: @subject.ratings.rat
 
 .image
   = image_tag(@rating.emoji.image_name)
-.distractors
+#distractor_buttons.distractors
   strong = t('.demand')
   = link_to @rating.stimuli.first.verbal, rating_path(@rating, { 'rating[choosen_id]' => @rating.stimuli.first}), class: 'button first', method: :put
   = link_to @rating.stimuli.last.verbal, rating_path(@rating, { 'rating[choosen_id]' => @rating.stimuli.last}), class: 'button second', method: :put

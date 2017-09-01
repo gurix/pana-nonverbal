@@ -11,8 +11,10 @@ class RatingsController < ApplicationController
     @rating.update_attributes(rating_params.merge(rated_at: DateTime.now))
 
     # Redirect to next rating
-    next_rating = current_subject.rate_next
-    return redirect_to(edit_rating_path(next_rating)) if next_rating
+    next_rating = @subject.rate_next
+    # Jump directly to the buttns after the second rating. So we don't have to scroll on mobile
+    anchor = 'distractor_buttons' if @subject.ratings.rated.count > 1
+    return redirect_to(edit_rating_path(next_rating, anchor: anchor)) if next_rating
 
     # Otherwise we are at the end and can finish the experiment for this participant
     cookies.delete(:subject_token)
