@@ -1,7 +1,12 @@
 h1= t('.title')
 p= render 'intro'
 
-p= link_to t('.create'), subjects_path, method: :post
+hr
 
 - if @subject
-  p= link_to t('.proceed'), edit_rating_path(@subject.rate_next)
+  p.text-center
+    = link_to t('.proceed'), edit_rating_path(@subject.rate_next)
+
+
+p.text-center
+  strong= link_to t('.create'), subjects_path, method: :post

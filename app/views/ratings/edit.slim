@@ -1,5 +1,5 @@
 p = t('.description')
-p = t('.counter', total: @subject.ratings.count, finnished: @subject.ratings.rated.count, unfinnished: @subject.ratings.unrated.count)
+/p = t('.counter', total: @subject.ratings.count, finnished: @subject.ratings.rated.count, unfinnished: @subject.ratings.unrated.count)
 
 .image
   = image_tag(@rating.emoji.image_name)
