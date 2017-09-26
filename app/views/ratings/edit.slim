@@ -1,5 +1,4 @@
 p = t('.description')
-/p = t('.counter', total: @subject.ratings.count, finnished: @subject.ratings.rated.count, unfinnished: @subject.ratings.unrated.count)
 
 .image
   = image_tag(@rating.emoji.image_name)
@@ -7,3 +6,5 @@ p = t('.description')
   strong = t('.demand')
   = link_to @rating.stimuli.first.verbal, rating_path(@rating, { 'rating[choosen_id]' => @rating.stimuli.first}), class: 'button first', method: :put
   = link_to @rating.stimuli.last.verbal, rating_path(@rating, { 'rating[choosen_id]' => @rating.stimuli.last}), class: 'button second', method: :put
+
+p.counter = t('.counter', total: @subject.ratings.count, finnished: @subject.ratings.rated.count)

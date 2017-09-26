@@ -28,7 +28,7 @@ de:
     edit:
       description: Entscheiden Sie, welches Wort das unten stehende Emoji besser beschreibt, indem Sie das entsprechende Wort anklicken. Es gibt kein «richtig» oder «falsch», vertrauen Sie Ihrem Bauchgefühl und antworten Sie spontan!
       demand: "Dieses Emoji steht für:"
-      counter: Sie haben %{finnished} von %{total} Emojis bewertet. Es sind nur noch %{unfinnished} Emojis übrig, das ist nicht viel.
+      counter: Sie haben %{finnished} von %{total} Emojis bewertet.
 
     update:
       end_message: Besten dank, dass Sie sich die Zeit genommen haben an dieser Untersuchung teilzunehmen. Die von Ihnen generierten Daten sind ein wertvoller Beitrag zu unserer Forschung.
