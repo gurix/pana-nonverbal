@@ -18,8 +18,7 @@ class RatingsController < ApplicationController
 
     # Otherwise we are at the end and can finish the experiment for this participant
     cookies.delete(:subject_token)
-    flash[:notice] = t('.end_message')
-    redirect_to root_path
+    redirect_to page_path(:finish)
   end
 
   def rating_params
