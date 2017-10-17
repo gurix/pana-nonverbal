@@ -1,0 +1,36 @@
+---
+title: "PANA Emoji Analysis"
+author: "Markus Graf"
+date: "17 10 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source('prepare_data.R')
+```
+
+## Summary per Emoji
+```{r}
+knitr::kable(per_emoji[order(-per_emoji$correct_percent),])
+```
+
+## Analyse the reaction time vs. the correctness
+```{r}
+plot(per_emoji$mean_reaction_time, per_emoji$correct_percent, xlab = 'Reaction Time (s)', ylab = 'Correctness (%)')
+fit1 <- lm(correct_percent ~ mean_reaction_time, data=per_emoji)
+abline(fit1, col=2)
+summary(fit1)
+```
+
+## Summary per set
+```{r}
+knitr::kable(per_set[-order(per_set$correct_percent),])
+```
+
+## Differences in sets
+```{r}
+boxplot(correct_percent ~ set, data=per_emoji)
+fit2 <- aov(correct_percent ~ set, data=per_emoji)
+summary(fit2)
+```

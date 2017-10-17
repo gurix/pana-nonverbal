@@ -19,3 +19,6 @@
 .env.production
 .env
 .Rproj.user
+data_analysis/data
+pana_emoji_analysis.html
+simulating_random_sampling.html
