@@ -1,7 +1,7 @@
 ---
 title: "PANA Emoji Analysis"
 author: "Markus Graf"
-date: "17 10 2017"
+date: "01.11.2017"
 output: html_document
 ---
 
@@ -9,6 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 source('prepare_data.R')
 ```
+
+# Get the total number of ratings and subjects
+```{r}
+dbGetQuery(con, "SELECT COUNT(*) AS number_of_ratings FROM ratings WHERE ratings.rated_at >= '2017-10-02'")
+dbGetQuery(con, "SELECT COUNT(*) AS number_of_subjects FROM subjects WHERE subjects.created_at >= '2017-10-02'")
+```
+
 
 ## Summary per Emoji
 ```{r}
@@ -30,7 +37,7 @@ knitr::kable(per_set[-order(per_set$correct_percent),])
 
 ## Differences in sets
 ```{r}
-boxplot(correct_percent ~ set, data=per_emoji)
+boxplot(correct_percent ~ set, data=per_emoji, ylab="Correctness (%)", xlab="Set")
 fit2 <- aov(correct_percent ~ set, data=per_emoji)
 summary(fit2)
 ```
